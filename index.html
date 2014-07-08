@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Countries</title>
+
+    <script src="lib/angular.js"></script>
+    <script src="app/js/app.js"></script>
+    <link rel="stylesheet" href="app/style/css/app.css" />
+    <script src="app/js/controller/CountriesController.js"></script>
+
+</head>
+
+<body ng-app="countries-app">
+
+    <div>
+        Countries
+    </div>
+
+    <span ng-controller="CountriesController">
+
+        <div ng-repeat="country in countries">
+
+            <div>
+                <span class="pointer-cursor" ng-click="country.isShown = !country.isShown">+</span>
+                <img ng-src="{{ICONS_PATH + country.flagImage}}" height="25" width="25" />
+                {{country.name}}
+                <span ng-show="country.isShown">
+                    <div>
+                        <b>Currency:</b> &nbsp
+                        {{country.currency}}
+                    </div>
+                    <div>
+                        <b>Stereotype:</b> &nbsp;
+                        {{country.stereotype}}
+                    </div>
+                </span>
+            </div>
+
+        </div>
+
+    </span>
+
+</body>
+
+</html>
