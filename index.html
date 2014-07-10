@@ -7,40 +7,63 @@
     <script src="lib/angular.js"></script>
     <script src="app/js/app.js"></script>
     <link rel="stylesheet" href="app/style/css/app.css" />
+    <link rel="stylesheet" href="app/style/css/bootstrap.min.css" />
     <script src="app/js/controller/CountriesController.js"></script>
+    <script src="app/js/controller/bootstrap.min.js"></script>
 
 </head>
 
 <body ng-app="countries-app">
 
-    <div>
-        Countries
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav">
+                <li>
+                    Countries
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <span ng-controller="CountriesController">
-
-        <div ng-repeat="country in countries">
-
-            <div>
-                <span class="pointer-cursor" ng-click="country.isShown = !country.isShown">+</span>
-                <img ng-src="{{ICONS_PATH + country.flagImage}}" height="25" width="25" />
-                {{country.name}}
-                <span ng-show="country.isShown">
-                    <div>
-                        <b>Currency:</b> &nbsp
-                        {{country.currency}}
-                    </div>
-                    <div>
-                        <b>Stereotype:</b> &nbsp;
-                        {{country.stereotype}}
-                    </div>
-                </span>
+    <div class="container">
+        <div class="container-wrapper" ng-controller="CountriesController">
+            <div class="center">
+                <img ng-src="{{event.imageUrl}}" alt="{{event.name}}" />
             </div>
 
+            <div class="center">
+                <h4>Introduction and examples for proof of concept</h4>
+            </div>
+            <br />
+            <div ng-repeat="country in countries">
+
+                <div class="col-xs-12" ng-class="{grey: country.isShown}">
+                    <div class="row">
+                        <span class="pointer-cursor" ng-click="country.isShown = !country.isShown">+</span>
+                        <img ng-src="{{ICONS_PATH + country.flagImage}}" height="25" width="25" />
+                        {{country.name}}
+                    </div>
+
+                    <span ng-show="country.isShown">
+                        <div class="row">
+                            <div class="span3">
+                                <b>Currency:</b> &nbsp
+                                {{country.currency}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3">
+                                <b>Stereotype:</b> &nbsp;
+                                {{country.stereotype}}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
         </div>
-
-    </span>
-
+    </div>
 </body>
 
 </html>

@@ -5,6 +5,13 @@ countriesApp
 
         $scope.ICONS_PATH = 'app/style/icons/';
 
+        $scope.event = {
+            name: 'Introducere in AngularJS',
+            date: '21/7/2014',
+            time: '10:30 AM',
+            imageUrl: 'app/style/images/AngularJS-large.png'
+        }
+
         $scope.countries = [
             {
                 name: 'United States',
