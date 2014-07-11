@@ -5,11 +5,13 @@
     <title>Countries</title>
 
     <script src="lib/angular.js"></script>
+    <script src="lib/jquery.js"></script>
     <script src="app/js/app.js"></script>
     <link rel="stylesheet" href="app/style/css/app.css" />
     <link rel="stylesheet" href="app/style/css/bootstrap.min.css" />
     <script src="app/js/controller/CountriesController.js"></script>
-    <script src="app/js/controller/bootstrap.min.js"></script>
+    <script src="app/js/filter/weDontLike.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
 
 </head>
 
@@ -35,6 +37,7 @@
                 <h4>Introduction and examples for proof of concept</h4>
             </div>
             <br />
+
             <div ng-repeat="country in countries">
 
                 <div class="col-xs-12" ng-class="{grey: country.isShown}">
