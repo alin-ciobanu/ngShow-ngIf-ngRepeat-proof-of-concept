@@ -1,7 +1,19 @@
 countriesApp
 
-.controller('CountriesController', ['$scope', '$timeout',
-    function ($scope, $timeout) {
+.controller('CountriesController', ['$scope', '$timeout', '$http',
+    function ($scope, $timeout, $http) {
+
+        var countriesSuccessCallback = function (data) {
+            $scope.countries = data;
+        }
+
+        var countriesErrorCallback = function (response) {
+            alert("error fetching countries");
+        }
+
+        $http.get('countries.json')
+            .success(countriesSuccessCallback)
+            .error(countriesErrorCallback);
 
         $scope.ICONS_PATH = 'app/style/icons/';
 
@@ -11,6 +23,7 @@ countriesApp
             time: '15:00 PM (or whatever. I forgot the starting time when I made the presentation)',
             imageUrl: 'app/style/images/AngularJS-large.png'
         }
+
 
         $scope.countries = [
             {
