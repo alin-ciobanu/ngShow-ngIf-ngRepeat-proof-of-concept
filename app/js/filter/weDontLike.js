@@ -5,8 +5,12 @@ countriesApp.filter('weDontLike', function () {
 
         var filteredArray = [];
 
+        if (!angular.isDefined(nameToExclude)) {
+            return inputArray;
+        }
+
         for (var i in inputArray) {
-            if (inputArray[i].name != nameToExclude) {
+            if (inputArray[i].name.toLowerCase() != nameToExclude.toLowerCase()) {
                 filteredArray.push(inputArray[i]);
             }
         }

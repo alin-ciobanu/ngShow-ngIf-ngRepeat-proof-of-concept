@@ -54,13 +54,5 @@
         "capitalCity": "Amsterdam",
         "flagImage": "netherlands.png",
         "isShown": false
-    },
-    {
-        "name": "Italy",
-        "stereotype": "If the Berlin wall would have been built by Italians it would have come down on its own.",
-        "currency": "EUR",
-        "capitalCity": "Rome",
-        "flagImage": "italy.png",
-        "isShown": false
     }
 ]

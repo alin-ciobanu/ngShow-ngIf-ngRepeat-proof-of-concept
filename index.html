@@ -51,8 +51,10 @@
                     <img src="app/style/images/gaaay.jpg" style="width: 7%; height: 7%">
                 </div>
 
+                <input type="text" ng-model="excludedCountryName" />
+
                 <ul ui-sortable="sortableOptions" ng-model="countries" class="sortable">
-                    <li ng-repeat="country in countries">
+                    <li ng-repeat="country in countries | weDontLike:excludedCountryName">
 
                         <span>
                             <div class="row">
@@ -89,6 +91,14 @@
 
                     </li>
                 </ul>
+
+                Name: <input ng-model="newCountry.name" />
+                Stereotype: <input ng-model="newCountry.stereotype" />
+                Capital: <input ng-model="newCountry.capitalCity" />
+                Currency: <input ng-model="newCountry.currency" />
+                <br />
+                <input type="button" value="Add" ng-click="addCountry(newCountry)" />
+
                 <div class="clearfix"></div>
             </div>
         </div>

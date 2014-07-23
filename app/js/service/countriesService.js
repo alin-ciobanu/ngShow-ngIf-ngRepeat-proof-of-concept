@@ -1,31 +1,9 @@
+
 countriesApp
 
-.controller('CountriesController', ['$scope', '$timeout', '$http',
-    function ($scope, $timeout, $http) {
+.factory('CountriesService', function () {
 
-        var countriesSuccessCallback = function (data) {
-            $scope.countries = data;
-        }
-
-        var countriesErrorCallback = function (response) {
-            alert("error fetching countries");
-        }
-
-        $http.get('countries.json')
-            .success(countriesSuccessCallback)
-            .error(countriesErrorCallback);
-
-        $scope.ICONS_PATH = 'app/style/icons/';
-
-        $scope.event = {
-            name: 'Introduction to AngularJS',
-            date: '24/7/2014',
-            time: '15:00 PM (or whatever. I forgot the starting time when I made the presentation)',
-            imageUrl: 'app/style/images/AngularJS-large.png'
-        }
-
-
-        $scope.countries = [
+        var countries = [
             {
                 name: 'United States',
                 stereotype: 'A person who speaks exactly one language is called American.',
@@ -81,9 +59,7 @@ countriesApp
                 capitalCity: 'Amsterdam',
                 flagImage: 'netherlands.png',
                 isShown: false
-            }
-/*
-            ,
+            },
             {
                 name: 'Italy',
                 stereotype: 'If the Berlin wall would have been built by Italians it would have come down on its own.',
@@ -92,33 +68,15 @@ countriesApp
                 flagImage: 'italy.png',
                 isShown: false
             }
-*/
         ];
 
-        $scope.addCountry = function (newCountry) {
-            newCountry.flagImage = newCountry.name.toLowerCase() + '.png';
-            newCountry.isShown = false;
-            $scope.countries.push(newCountry);
+        var add = function (item) {
+            countries.push(item);
         }
 
-
-        $scope.sortableOptions = {
-            axis: 'y',
-            cursor: 'move',
-            opacity: 0.8,
-            revert: true
+        return {
+            countries: countries,
+            add: add
         };
 
-        var updateDate = function () {
-
-            $scope.date = new Date();
-
-            var secondsUntilNextMinute = 60 - $scope.date.getSeconds();
-
-            $timeout(updateDate, secondsUntilNextMinute * 1000 + 10);
-
-        }
-
-        updateDate();
-
-    }])
+    })

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Example</title>
+
+    <script src="lib/jquery-1.10.2.js"></script>
+    <script src="lib/jquery-ui-1.10.4.custom.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/sortable.js"></script>
+    <script src="app/js/app.js"></script>
+    <link rel="stylesheet" href="app/style/css/app.css" />
+    <link rel="stylesheet" href="lib/bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap-3.2.0-dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="lib/bootstrap-3.2.0-dist/js/bootstrap.min.js" />
+    <script src="app/js/controller/CountriesController.js"></script>
+    <script src="app/js/controller/ExampleController.js"></script>
+
+
+</head>
+
+<body ng-app="countries-app">
+
+<span ng-controller="ExampleController">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="navbar-nav">
+                    <li>
+                        Example
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="container-wrapper">
+                <div class="center">
+                    <img ng-src="{{event.imageUrl}}" alt="{{event.name}}" />
+                </div>
+
+                <!-- TODO code here-->
+                <div ng-repeat="number in numbers">
+                    {{number}}
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </span>
+</body>
+
+</html>
