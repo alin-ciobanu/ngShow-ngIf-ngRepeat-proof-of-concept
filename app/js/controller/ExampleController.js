@@ -6,6 +6,9 @@ countriesApp
             $scope.numbers = [1, 2, 3, 4, 5, 6];
 
 
+            $scope.aValue = 21;
+
+
 
             $scope.event = {
                 name: 'Introduction to AngularJS',

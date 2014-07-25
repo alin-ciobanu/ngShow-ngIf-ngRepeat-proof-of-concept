@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="lib/bootstrap-3.2.0-dist/js/bootstrap.min.js" />
     <script src="app/js/controller/CountriesController.js"></script>
     <script src="app/js/controller/ExampleController.js"></script>
+    <script src="app/js/directive/dummyDirective.js"></script>
 
 
 </head>
@@ -43,6 +44,20 @@
                 <div ng-repeat="number in numbers">
                     {{number}}
                 </div>
+
+
+                <br />
+                <br />
+                <br />
+
+                <div>
+                    Let's see a directive
+                </div>
+
+                <div>
+                    Value outside the directive: <input ng-model="aValue" />
+                </div>
+                <dummy a-primitive-value="aValue"></dummy>
 
                 <div class="clearfix"></div>
             </div>
